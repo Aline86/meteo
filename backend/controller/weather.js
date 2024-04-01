@@ -17,8 +17,7 @@ exports.getMap = (req, res) => {
           data.current.icon, 
           data.current.wind_mph, 
           data.current.wind_dir, 
-          data.current.precip_mm, 
-      
+          data.current.precip_mm,   
           data.current.humidity, 
           data.current.cloud, 
           data.current.uv, 

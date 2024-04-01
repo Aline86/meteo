@@ -67,7 +67,7 @@ class Weather {
 
             let avgtemp_c = document.createElement("div");
             avgtemp_c.setAttribute("class", "avgtemp_c avgtemp_c-data")
-            avgtemp_c.innerText = "Températur du jour  : " + elem.avgtemp_c
+            avgtemp_c.innerText = "Température du jour  : " + elem.avgtemp_c
 
             let maxwind_mph = document.createElement("div");
             maxwind_mph.setAttribute("class", "maxwind_mph maxwind_mph-data")
@@ -81,12 +81,13 @@ class Weather {
             icon.setAttribute("src", elem.icon)
 
             div.appendChild(jour)
+            div.appendChild(icon)
+            div.appendChild(avgtemp_c)
             div.appendChild(maxtemp_c)
             div.appendChild(mintemp_c)
-            div.appendChild(avgtemp_c)
             div.appendChild(maxwind_mph)
             div.appendChild(totalprecip_mm)
-            div.appendChild(icon)
+            
 
             document.querySelector(".card-container").appendChild(div)  
         }))
@@ -96,25 +97,26 @@ class Weather {
         let div = document.createElement("div");
         div.setAttribute("class", "one_town town-data")
 
-        let label = document.createElement("div");
+        let label = document.createElement("span");
         label.setAttribute("class", "label town-data")
         let labelStr = elem.label
         label.innerText = labelStr.charAt(0).toUpperCase() + labelStr.slice(1);
 
-        let zip_code = document.createElement("div");
+        let zip_code = document.createElement("span");
         zip_code.setAttribute("class", "zip_code town-data")
-        zip_code.innerText = elem.zip_code
+        zip_code.innerText = " " + elem.zip_code
 
-        let department_name = document.createElement("div");
+        let department_name = document.createElement("span");
         department_name.setAttribute("class", "department_name town-data")
-        department_name.innerText = elem.department_name
-
-        let region_name = document.createElement("div");
+        let department = elem.department_name
+        department_name.innerText = " " + department.charAt(0).toUpperCase() + department.slice(1);
+    
+        let region_name = document.createElement("span");
         region_name.setAttribute("class", "region_name town-data")
-        region_name.innerText = elem.region_name
+        let region = elem.region_name
+        region_name.innerText = " " + region.charAt(0).toUpperCase() + region.slice(1);
 
         div.appendChild(label)
-        div.appendChild(zip_code)
         div.appendChild(department_name)
         div.appendChild(region_name)
         div.appendChild(zip_code)
