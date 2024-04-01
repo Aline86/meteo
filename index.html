@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" >
+    <head >
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Météo France</title>
+        <link type="text/css" rel="stylesheet" href="./frontend/public/css/front_views.css" />
+        <link type="text/css" rel="stylesheet" href="./frontend/public/css/carousel.css" />        
+        <script type="module" src="./frontend/public/javascript/carousel.js"></script>
+        <script type="module" src="./frontend/public/javascript/front_views.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="title_background">
+                <h1 class="meteo_title">Ma météo</h1>
+            </div>    
+            <div class="ville">
+                <div class="recherche_title">
+                    Rechercher une ville
+                </div>
+                <input id="input_name"/>
+                <div id="input_value"></div>
+                
+                <div class="container-of-the-cards-container">
+                    <div class="left"><img src="./frontend/public/image/left.png"/></div>
+                    <div class="container-of-the-cards">
+                        <div class="card-container">
+                         
+                        </div>
+                    </div>
+                    <div class="right"><img src="./frontend/public/image/next.png"/></div>
+                </div>
+            </div>
+            <div class="title_background">
+                <div id="map"></div>
+            </div>
+        </div>
+    </body>
+</html>
