@@ -1,0 +1,11 @@
+{
+  "name": "meteo_totale",
+  "version": "1.0.0",
+  "description": "site de visualisation de la météo",
+  "main": "index.js",
+  "scripts": {
+    "test": "run"
+  },
+  "author": "Claire-Aline Haestie",
+  "license": "ISC"
+}

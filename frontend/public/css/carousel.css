@@ -1,4 +1,5 @@
 .container-of-the-cards-container {
+    max-width: 1200px;
     display: none;
 }
 
@@ -15,7 +16,7 @@
 
 }
 .card {
-    transition: all 0.3s ease-in-out;
+    transition: all 0.5s ease-in-out;
     position: relative;
     border: 1px solid lightgray;
     border-radius: 3px;
@@ -28,8 +29,14 @@
     font-size: 25px;
 }
 
-
-
+.remove-space-right {
+    margin-right: 50px;
+    margin-left: 50px;
+}
+.remove-space-left {
+ 
+    margin-right: 50px;
+}
 .left, .right {
     height: 50px;
     width: 50px;
