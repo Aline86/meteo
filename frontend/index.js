@@ -10,23 +10,17 @@ class Weather {
         document.getElementById("input_name").addEventListener("keyup", function(e){
             if(e.target.value.length >= 3) {
                 document.getElementById("input_value").innerHTML = ""
+                document.querySelector(".container-of-the-cards-container").style.display = "none"
                 self.getTowns(e.target.value).then(response => response.json())
                 .then(response => response.towns.forEach(elem => {
-                    let div = document.createElement("div");
-                    div.setAttribute("class", "town")
-                    div.setAttribute("data-attribute", elem.label)
-                    let labelStr = elem.label
-                    div.innerText = labelStr.charAt(0).toUpperCase() + labelStr.slice(1);
-                    document.getElementById("input_value").appendChild(div)
+                    let div = self.createTounLineData(elem);
                     div.addEventListener("click", function(e){
-                        document.getElementById("input_value").innerHTML = ""
-                        document.querySelector(".card-container").innerHTML = ""
+                        self.emptyDivs();
                         self.getTown(e.target.getAttribute('data-attribute')).then(response => response.json())
                         .then(response => response.towns.forEach(elem => {
                             self.createWeather(elem)
                             self.createTown(elem)
                             self.carousel.reinit()
-                            document.querySelector(".container-of-the-cards-container").style.display = "flex"
                         }))
                     })
                 }))
@@ -39,6 +33,19 @@ class Weather {
         document.querySelector(".right").addEventListener("click", this.carousel.moveLeft)
     }
 
+    emptyDivs = () => {
+        document.getElementById("input_value").innerHTML = ""
+        document.querySelector(".card-container").innerHTML = ""
+    }
+    createTounLineData = (elem) => {
+        let div = document.createElement("div");
+        div.setAttribute("class", "town")
+        div.setAttribute("data-attribute", elem.label)
+        let labelStr = elem.label
+        div.innerText = labelStr.charAt(0).toUpperCase() + labelStr.slice(1);
+        document.getElementById("input_value").appendChild(div)
+        return div;
+    }
     getTowns = async (name) => 
         await fetch(`http://localhost:3000/towns/${name}`)
 
@@ -63,25 +70,15 @@ class Weather {
             jour.setAttribute("class", "date date-data")
             jour.innerText = this.createDate(elem.date_epoch)
 
-            let maxtemp_c = document.createElement("div");
-            maxtemp_c.setAttribute("class", "maxtemp_c maxtemp_c-data")
-            maxtemp_c.innerText = "Maximale  : " + elem.maxtemp_c + " C°"
+            let maxtemp_c = this.createNormalElement(elem, "maxtemp_c maxtemp_c-data", "Maximale  : " + elem.maxtemp_c + " C°");
 
-            let mintemp_c = document.createElement("div");
-            mintemp_c.setAttribute("class", "mintemp_c mintemp_c-data")
-            mintemp_c.innerText = "Minimale  : " + elem.mintemp_c
+            let mintemp_c = this.createNormalElement(elem, "mintemp_c mintemp_c-data", "Minimale  : " + elem.mintemp_c + " C°");
 
-            let avgtemp_c = document.createElement("div");
-            avgtemp_c.setAttribute("class", "avgtemp_c avgtemp_c-data")
-            avgtemp_c.innerText = "Température du jour  : " + elem.avgtemp_c
+            let avgtemp_c =  this.createNormalElement(elem, "avgtemp_c avgtemp_c-data", "Température du jour  : " + elem.avgtemp_c);
 
-            let maxwind_mph = document.createElement("div");
-            maxwind_mph.setAttribute("class", "maxwind_mph maxwind_mph-data")
-            maxwind_mph.innerText = "Vent  : " + elem.maxwind_mph
+            let maxwind_mph = this.createNormalElement(elem, "maxwind_mph maxwind_mph-data", "Vent  : " + elem.maxwind_mph);
 
-            let totalprecip_mm = document.createElement("div");
-            totalprecip_mm.setAttribute("class", "totalprecip_mm totalprecip_mm-data")
-            totalprecip_mm.innerText = "Précipitations : " + elem.totalprecip_mm + " mm"
+            let totalprecip_mm = this.createNormalElement(elem, "totalprecip_mm totalprecip_mm-data", "Précipitations : " + elem.totalprecip_mm + " mm");
 
             let icon = document.createElement("img");
             icon.setAttribute("src", elem.icon)
@@ -95,7 +92,16 @@ class Weather {
             div.appendChild(totalprecip_mm)
             
             document.querySelector(".card-container").appendChild(div)  
+            document.querySelector(".container-of-the-cards-container").style.display = "flex"
         }))
+    }
+    
+    createNormalElement = (elem, classes, innertext) => {
+        let name = document.createElement("div");
+        name.setAttribute("class", classes)
+        name.innerText = innertext
+        
+        return name;
     }
 
     createTown = (elem) => {
@@ -137,9 +143,9 @@ class Weather {
             date.getMonth()+1,
             date.getDate(),
         ];
-        let dateStr = date.toLocaleDateString("fr-FR", options);;
-        return dateStr.charAt(0).toUpperCase() + dateStr.slice(1);
-        
+        let dateStr = date.toLocaleDateString("fr-FR", options);
+
+        return dateStr.charAt(0).toUpperCase() + dateStr.slice(1); 
     }
 }
     
