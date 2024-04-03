@@ -6,6 +6,6 @@
 
 ```Le site api de récupération des données météorologiques est le suivant https://www.weatherapi.com```
 
-*La météo est visible sur les 7 prochains jours : *
+*La météo est visible sur les 7 prochains jours :*
 
 ![capture du rendu visuel](readme_pic/meteo.PNG)
