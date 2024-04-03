@@ -11,27 +11,16 @@ export class Caroussel {
         document.querySelector(".right").style.display = "none"
         document.querySelector(".container-of-the-cards").classList.add("remove-space-left")
         if(this.direction == null || this.direction == 'right') {
-            
             this.direction = 'left';
             this.translateRight = this.translateLeft - (document.querySelector(".card-container").firstElementChild.clientWidth + 5);
-            document.querySelectorAll(".card").forEach(element => {
-                element.style.transform = "translate(" + this.translateRight + "px)";
-            });
+            this.translateX(this.translateRight)
         }
         else {
             this.translateRight -= (document.querySelectorAll(".card")[0].clientWidth + 5);
-            document.querySelectorAll(".card").forEach(element => {
-                element.style.transform = "translate(" + this.translateRight + "px)";
-            });
+            this.translateX(this.translateRight)
         }
         document.querySelector(".card-container").firstElementChild.addEventListener("transitionend", () => {
-            let firstCard =  document.querySelector(".card-container").firstElementChild
-            let p_prime = firstCard.cloneNode(true);
-            document.querySelector(".card-container").appendChild(p_prime);
-            firstCard.remove();
-            document.querySelector(".card-container").style.transform = "translate(" + -this.translateRight + "px)"
-            document.querySelector(".right").style.display = "block"
-            document.querySelector(".container-of-the-cards").classList.remove("remove-space-left")
+            this.afterTransitionEndLeft();
         })
     }
     moveRight = (e) => {
@@ -47,24 +36,17 @@ export class Caroussel {
         if(this.direction == null || this.direction == 'left') {
             this.direction = 'right';
             this.translateLeft = this.translateRight + (document.querySelector(".card-container").firstElementChild.clientWidth + 5); 
-            document.querySelectorAll(".card").forEach(element => {
-                element.style.transform = "translate(" + this.translateLeft + "px)";
-            });
+            this.translateX(this.translateLeft)
             document.querySelector(".card-container").addEventListener("transitionend", () => {
                 lastCard.remove();
-                document.querySelector(".left").style.display = "block"
-                document.querySelector(".container-of-the-cards").classList.remove("remove-space-right")
+                this.removeClass(".left", "remove-space-right")
             })
         }
         else {
             this.translateLeft = (document.querySelector(".card-container").firstElementChild.clientWidth + 5) * this.count;
-            document.querySelectorAll(".card").forEach(element => {
-                element.style.transform = "translate(" + this.translateLeft + "px)";
-            });
+            this.translateX(this.translateLeft)
             document.querySelector(".card-container").lastChild.addEventListener("transitionend", () => {
-                lastCard.remove();
-                document.querySelector(".left").style.display = "block"
-                document.querySelector(".container-of-the-cards").classList.remove("remove-space-right")
+                this.afterTransitionEndRight(lastCard)
             })
         }
     }  
@@ -78,6 +60,31 @@ export class Caroussel {
         this.translateRight = 0;
         this.direction = null;
         this.count = 0
+    }
+
+    translateX = (value) => {
+        document.querySelectorAll(".card").forEach(element => {
+            element.style.transform = "translate(" + value + "px)";
+        });
+    }
+
+    afterTransitionEndLeft = () => {
+        let firstCard =  document.querySelector(".card-container").firstElementChild
+        let p_prime = firstCard.cloneNode(true);
+        document.querySelector(".card-container").appendChild(p_prime);
+        firstCard.remove();
+        document.querySelector(".card-container").style.transform = "translate(" + -this.translateRight + "px)"
+        this.removeClass(".right", "remove-space-left")
+    }
+    afterTransitionEndRight = (lastCard) => {
+        lastCard.remove();
+        document.querySelector(".left").style.display = "block"
+        document.querySelector(".container-of-the-cards").classList.remove("remove-space-right")
+    }
+    
+    removeClass = (classLeft, classRight) => {
+        document.querySelector(classLeft).style.display = "block"
+        document.querySelector(".container-of-the-cards").classList.remove(classRight)
     }
 }
 

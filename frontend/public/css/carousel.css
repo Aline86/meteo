@@ -2,18 +2,14 @@
     max-width: 1200px;
     display: none;
 }
-
 .container-of-the-cards {
     overflow: hidden;
-    
-
 }
 .card-container {
     display: flex;
     height: 320px;
     width: fit-content;
     padding: 5px;
-
 }
 .card {
     transition: all 0.5s ease-in-out;
@@ -28,13 +24,10 @@
     align-items: center;
     font-size: 25px;
 }
-
 .remove-space-right {
-    margin-right: 50px;
     margin-left: 50px;
 }
 .remove-space-left {
- 
     margin-right: 50px;
 }
 .left, .right {
@@ -43,14 +36,12 @@
     cursor: pointer;
     margin-top: 148px;
 }
-
 .left img, .right img {
     height: 50px;
     width: 50px;
 }
 
 @media screen and (max-width: 600px) {
-    
     .card {
         width: 215px!important;
         font-size: 15px!important;
