@@ -74,6 +74,10 @@ export class Caroussel {
             element.style.transform = "none"
         });
         document.querySelector(".card-container").style.transform = "none"
+        this.translateLeft = 0;
+        this.translateRight = 0;
+        this.direction = null;
+        this.count = 0
     }
 }
 
