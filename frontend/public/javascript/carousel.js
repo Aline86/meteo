@@ -28,17 +28,18 @@ export class Caroussel {
         this.count++
         document.querySelector(".left").style.display = "none"
         document.querySelector(".container-of-the-cards").classList.add("remove-space-right")
-        let lastCard = document.querySelector(".card-container").lastChild;
+        let lastCard = document.querySelector(".card-container").lastElementChild;
         let p_prime = lastCard.cloneNode(true);
         let new_pos = (document.querySelector(".card-container").firstElementChild.clientWidth + 5) * this.count
-        document.querySelector(".card-container").insertBefore(p_prime, document.querySelector(".card-container").firstElementChild);
+        document.querySelector(".card-container").prepend(p_prime);
+        lastCard.remove();
         document.querySelector(".card-container").style.transform = "translate(" + -new_pos  + "px)";
         if(this.direction == null || this.direction == 'left') {
             this.direction = 'right';
             this.translateLeft = this.translateRight + (document.querySelector(".card-container").firstElementChild.clientWidth + 5); 
             this.translateX(this.translateLeft)
             document.querySelector(".card-container").addEventListener("transitionend", () => {
-                lastCard.remove();
+                
                 this.removeClass(".left", "remove-space-right")
             })
         }
@@ -77,7 +78,7 @@ export class Caroussel {
         this.removeClass(".right", "remove-space-left")
     }
     afterTransitionEndRight = (lastCard) => {
-        lastCard.remove();
+        //lastCard.remove();
         document.querySelector(".left").style.display = "block"
         document.querySelector(".container-of-the-cards").classList.remove("remove-space-right")
     }
