@@ -5,11 +5,11 @@ exports.getMap = (req, res) => {
     let data = '';
     const request = http.get('http://api.weatherapi.com/v1/forecast.json?key=c04fe2e1748e473da1181653243103&q=' + req.params.latitude + ',' + req.params.longitude + '&days=7', (response) => {
       response.setEncoding('utf8');
-      response.on('data', (chunk) => {
+      /*response.on('data', (chunk) => {
         data += chunk;
-      });
+      });*/
       response.on('end', () => {
-        data = JSON.parse(data);
+       /* data = JSON.parse(data);
         let weather = new Weather(
           data.current.temp_c, 
           data.current.is_day, 
@@ -22,7 +22,7 @@ exports.getMap = (req, res) => {
           data.current.cloud, 
           data.current.uv, 
           data.forecast
-        )
+        )*/
           res.send(JSON.stringify( response))
         });
     });
