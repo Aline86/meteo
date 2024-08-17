@@ -47,13 +47,13 @@ class Weather {
         return div;
     }
     getTowns = async (name) => 
-        await fetch(`http://localhost:3000/towns/${name}`)
+        await fetch(`https://calm-pika-ba89f9.netlify.app/towns/${name}`)
 
     getTown = async (name) => 
-        await fetch(`http://localhost:3000/town/${name}`)
+        await fetch(`https://calm-pika-ba89f9.netlify.app/town/${name}`)
 
     getWeather = async (latitude, longitude) => 
-        await fetch(`http://localhost:3000/showmap/${latitude}/${longitude}`)
+        await fetch(`https://calm-pika-ba89f9.netlify.app/showmap/${latitude}/${longitude}`)
 
     createWeather = (elem) => {
         let latitude = elem.latitude;
