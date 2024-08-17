@@ -10,7 +10,7 @@ exports.getMap = (req, res) => {
       });
       response.on('end', () => {
         data = JSON.parse(data);
-        let weather = new Weather(
+       /* let weather = new Weather(
           data.current.temp_c, 
           data.current.is_day, 
           data.current.text, 
@@ -22,8 +22,8 @@ exports.getMap = (req, res) => {
           data.current.cloud, 
           data.current.uv, 
           data.forecast
-        )
-          res.send(JSON.stringify( weather))
+        )*/
+          res.send(JSON.stringify( data))
         });
     });
   
