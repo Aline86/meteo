@@ -19,7 +19,7 @@ exports.getMap = (req, res) => {
     })
     .then(response => response.json())
     .then(function(data) {
-      data = data.data
+      
       return res.send(JSON.stringify(new Weather(
         data.current.temp_c, 
         data.current.is_day, 
