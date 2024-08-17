@@ -20,7 +20,7 @@ exports.getMap = (req, res) => {
     .then(response => response.json())
     .then(function(data) {
       data = data.data
-      return new Weather(
+      return res.send(JSON.stringify(new Weather(
         data.current.temp_c, 
         data.current.is_day, 
         data.current.text, 
@@ -32,13 +32,10 @@ exports.getMap = (req, res) => {
         data.current.cloud, 
         data.current.uv, 
         data.forecast
-      )
-      
+      )))
     })
     .catch(err => console.error(err));
-    if(weather !== undefined){
-      res.send(JSON.stringify(weather))
-    }
+  
   
   }
   
