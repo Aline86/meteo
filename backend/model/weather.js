@@ -29,8 +29,7 @@ let town = class Weather {
     }
 
     next_week_days = (forecast) => {
-        //let days = {};
-        //let i = 0;
+        let days = {};
         let inter_name = [];
         forecast.forecastday.forEach(element => {
             let day = {};
@@ -45,16 +44,15 @@ let town = class Weather {
             day.icon = element.day.condition.icon;
        
             inter_name.push(day)
-         
-           // i++;
+    
         });
       
-        /*for ( var index in inter_name ) {
+        for ( var index in inter_name ) {
          
             days[index] = inter_name[index]; 
           
-         }*/
-       return inter_name;
+         }
+       return days;
     }
 }
 
