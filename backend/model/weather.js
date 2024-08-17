@@ -47,12 +47,12 @@ let town = class Weather {
     
         });
       
-        /*for ( var index in inter_name ) {
+        for ( var index in inter_name ) {
          
             days[index] = inter_name[index]; 
           
-         }*/
-       return inter_name;
+         }
+       return days;
     }
 }
 
