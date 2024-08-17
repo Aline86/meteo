@@ -6,7 +6,7 @@ exports.getMap = async (req, res) => {
   let weather = undefined;
   await fetch('http://api.weatherapi.com/v1/forecast.json?key=c04fe2e1748e473da1181653243103&' + new URLSearchParams({
       q: req.params.latitude + ',' + req.params.longitude ,
-      day: 7
+      day: '7'
   }).toString(),  {
       method: "GET", 
       mode: "no-cors", 
