@@ -4,7 +4,7 @@ let weather = {};
 exports.getMap = async (req, res) => {
   try {  
     let data = '';
-    const request = await fetch('http://api.weatherapi.com/v1/forecast.json?key=c04fe2e1748e473da1181653243103&q=' + req.params.latitude + ',' + req.params.longitude + '&days=7', (response) => {
+    const request = await fetch('http://api.weatherapi.com/v1/forecast.json?key=c04fe2e1748e473da1181653243103&q=' + req.params.latitude + ',' + req.params.longitude + '&days=7', (response, err) => {
       response.setEncoding('utf8');
       response.on('data', (chunk) => {
         data += chunk;
@@ -24,7 +24,7 @@ exports.getMap = async (req, res) => {
           data.current.uv, 
           data.forecast
         )
-        res.send(JSON.stringify( weather))
+        response.send(JSON.stringify( weather))
       }); 
     });
   } catch(err) {
