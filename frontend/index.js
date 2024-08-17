@@ -59,7 +59,7 @@ class Weather {
         let latitude = elem.latitude;
         let longitude = elem.longitude;
 
-        let data = await this.getWeather(latitude, longitude).then(response => response.json()).then(response => Object.entries(response.next_days).forEach(entry => {
+        await this.getWeather(latitude, longitude).then(response => response.json()).then(response => Object.entries(response.next_days).forEach(entry => {
             const [key, value] = entry;
             const elem = value;
 
