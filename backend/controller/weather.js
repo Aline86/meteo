@@ -1,7 +1,8 @@
 const Weather = require('../model/weather')
 const http = require('http'); 
+let weather = {};
 exports.getMap = async (req, res) => {
-  let weather = {};
+ 
     let data = '';
     const request = await http.get('http://api.weatherapi.com/v1/forecast.json?key=c04fe2e1748e473da1181653243103&q=' + req.params.latitude + ',' + req.params.longitude + '&days=7', (response) => {
       response.setEncoding('utf8');
@@ -27,16 +28,16 @@ exports.getMap = async (req, res) => {
         
       }); 
 
-      if(weather !== undefined) {
-        res.send(JSON.stringify( weather))
-      }
+      
     });
   
     // Log errors if any occur
     request.on('error', (error) => {
       console.error(error);
     });
-  
+    if(weather !== undefined) {
+      res.send(JSON.stringify( weather))
+    }
     // End the request
     request.end();
   };
