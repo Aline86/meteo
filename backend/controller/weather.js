@@ -10,6 +10,7 @@ exports.getMap = (req, res) => {
       });
       response.on('end', () => {
         data = JSON.parse(data);
+        console.log("dataweather" + data)
         let weather = new Weather(
           data.current.temp_c, 
           data.current.is_day, 
