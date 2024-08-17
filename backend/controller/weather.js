@@ -23,7 +23,7 @@ exports.getMap = async (req, res) => {
           data.current.uv, 
           data.forecast
         )
-          res.send(JSON.stringify( data))
+          res.send(JSON.stringify( weather))
         });
     });
   
