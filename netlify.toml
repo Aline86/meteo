@@ -8,7 +8,7 @@
   status = 200
   to = "/backend/router.js"
 [build]
-  functions = "backend/router"
+  functions = "backend/:router"
 
 [dev]
   publish = "frontend"
