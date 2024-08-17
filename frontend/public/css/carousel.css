@@ -42,6 +42,9 @@
 }
 
 @media screen and (max-width: 600px) {
+    .container {
+        width: 100%!important;
+    }
     .card {
         width: 215px!important;
         font-size: 15px!important;
