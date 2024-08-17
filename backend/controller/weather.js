@@ -24,7 +24,7 @@ exports.getMap = (req, res) => {
           data.forecast
         )*/
           //res.send(JSON.stringify( response))
-          res.send(JSON.parse(data))
+          res.send(JSON.parse(JSON.stringify( data)))
         });
     });
   
