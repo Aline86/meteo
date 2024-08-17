@@ -1,10 +1,7 @@
 [functions]
   external_node_modules = ["express"]
   node_bundler = "esbuild"
-[[redirects]]
-from = "https/*"
-to = "/frontend/index.html"
-status = 200
+
 
 [[headers]]
 for = "/*"
