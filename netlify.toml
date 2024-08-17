@@ -6,7 +6,7 @@
   from = "http/*"
   to = "/frontend/index.html"
   status = 200
-  to = "/.netlify/backend/"
+  to = "/.netlify/backend"
 [build]
   functions = "backend/router"
 
