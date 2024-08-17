@@ -19,7 +19,6 @@ exports.getMap = async (req, res) => {
     })
     .then(response => response.json())
     .then(function(data) {
-     
       let weather = {};
       weather = new Weather(
         data.current.temp_c, 
