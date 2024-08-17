@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "run",
-    "build": "vercel"
+    "build": "npm install"
   },
   "author": "Claire-Aline Haestie",
   "license": "ISC"
