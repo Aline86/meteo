@@ -9,22 +9,21 @@ exports.getMap = (req, res) => {
         data += chunk;
       });
       response.on('end', () => {
-       /* data = JSON.parse(data);
-        let weather = new Weather(
-          data.current.temp_c, 
-          data.current.is_day, 
-          data.current.text, 
-          data.current.icon, 
-          data.current.wind_mph, 
-          data.current.wind_dir, 
-          data.current.precip_mm,   
-          data.current.humidity, 
-          data.current.cloud, 
-          data.current.uv, 
-          data.forecast
-        )*/
-          //res.send(JSON.stringify( response))
-          res.send(JSON.stringify( JSON.parse(data)))
+          data = JSON.parse(data);
+          let weather = new Weather(
+            data.current.temp_c, 
+            data.current.is_day, 
+            data.current.text, 
+            data.current.icon, 
+            data.current.wind_mph, 
+            data.current.wind_dir, 
+            data.current.precip_mm,   
+            data.current.humidity, 
+            data.current.cloud, 
+            data.current.uv, 
+            data.forecast
+          )
+          res.send(JSON.stringify( weather))
         });
     });
   
