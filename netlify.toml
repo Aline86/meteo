@@ -7,7 +7,7 @@
 for = "/*"
 
 [headers.values]
-Access-Control-Allow-Origin = "*"
+Access-Control-Allow-Origin = "https://calm-pika-ba89f9.netlify.app/*"
 [build]
   functions = "backend/router"
 
