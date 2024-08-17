@@ -3,7 +3,7 @@
   node_bundler = "esbuild"
 
 [build]
-  functions = "backend/server.js"
+  functions = "backend/router/route.js"
 
 [dev]
   publish = "frontend"
