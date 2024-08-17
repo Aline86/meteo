@@ -4,8 +4,8 @@
   "description": "site de visualisation de la météo",
   "main": "index.js",
   "scripts": {
-    "test": "run",
-    "build": "npm install"
+    "test": "run"
+   
   },
   "author": "Claire-Aline Haestie",
   "license": "ISC"
