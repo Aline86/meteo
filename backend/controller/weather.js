@@ -8,6 +8,7 @@ exports.getMap = (req, res) => {
       response.on('data', (chunk) => {
         data += chunk;
       });
+      console.log("weatherapi", data);
       response.on('end', () => {
         data = JSON.parse(data);
         let weather = new Weather(
