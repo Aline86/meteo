@@ -9,7 +9,7 @@ const { getMap } = require("../controller/weather")
 
 router.get('/towns/:name', getTowns)
 router.get('/town/:name', getTown)
-router.get('/showmap/:town', getMap)
+router.get('/showmap/:latitude/:longitude', getMap)
 api.use(cors())
 api.use("/api/", router);
 
