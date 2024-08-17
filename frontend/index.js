@@ -55,11 +55,11 @@ class Weather {
     getWeather = async (latitude, longitude) => 
         await fetch(`https://main-branch--meteobackend.netlify.app/api/showmap/${latitude}/${longitude}`)
 
-    createWeather = (elem) => {
+    createWeather = async (elem) => {
         let latitude = elem.latitude;
         let longitude = elem.longitude;
 
-        let data = this.getWeather(latitude, longitude).then(response => response.json()).then(response => Object.entries(response.next_days).forEach(entry => {
+        let data = await this.getWeather(latitude, longitude).then(response => response.json()).then(response => Object.entries(response.next_days).forEach(entry => {
             const [key, value] = entry;
             const elem = value;
 
