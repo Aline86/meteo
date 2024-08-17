@@ -6,7 +6,7 @@
   from = "https/*"
  
   status = 200
-  to = "http://localhost:3000/*"
+
 [build]
   functions = "backend/server.js"
 
