@@ -1,13 +1,15 @@
-import serverless from "serverless-http";
+var http = require("http");
 const express = require('express')
 const cors = require('cors')
 const {readdirSync} = require("fs")
 const port = 3000;
 const app = express()
+const { getTowns, getTown} = require("./controller/town")
+const { getMap } = require("./controller/weather")
 
-app.use(cors())
-app.set('trust proxy', 1) // trust first proxy
-readdirSync('./router').map((r) => app.use("/", require("./router/" + r)))
-// port
+http.createServer(function(req, res) {
+    res.get('/towns/:name', getTowns)
+    res.get('/town/:name', getTown)
+    res.get('/showmap/:latitude/:longitude', getMap)
+}).listen(3000, "localhost");
 
-export const handler = serverless(app);
