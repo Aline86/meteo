@@ -25,11 +25,11 @@ exports.getMap = async (req, res) => {
           data.forecast
         )
         res.send(JSON.stringify( weather))
-        }); 
-      });
-    } catch(err) {
-      console.log(err)
+      }); 
+    });
+  } catch(err) {
+    console.log(err)
   }
-   
+  
 };
   
