@@ -1,10 +1,10 @@
-const Weather = require('../model/weather')
+const Weather = require('../model/weather');
 
 
 exports.getMap = async (req, res) => {
 
-   
-  fetch('http://api.weatherapi.com/v1/forecast.json?key=c04fe2e1748e473da1181653243103&' + new URLSearchParams({
+  let weather = undefined;
+  await fetch('http://api.weatherapi.com/v1/forecast.json?key=c04fe2e1748e473da1181653243103&' + new URLSearchParams({
       q: req.params.latitude + ',' + req.params.longitude ,
       day: 7
   }).toString(),  {
@@ -19,8 +19,8 @@ exports.getMap = async (req, res) => {
     })
     .then(response => response.json())
     .then(function(data) {
-      let weather = {};
-      weather = new Weather(
+      
+      return weather = new Weather(
         data.current.temp_c, 
         data.current.is_day, 
         data.current.text, 
@@ -33,9 +33,13 @@ exports.getMap = async (req, res) => {
         data.current.uv, 
         data.forecast
       )
-      res.send(JSON.stringify(weather))
+      
     })
     .catch(err => console.error(err));
+    if(weather !== undefined){
+      res.send(JSON.stringify(weather))
+    }
+  
   }
   
 
