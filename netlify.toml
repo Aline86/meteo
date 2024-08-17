@@ -7,11 +7,11 @@ to = "/frontend/index.html"
 status = 200
 
 [[headers]]
-for = "/"
+for = "/*"
 [headers.values]
 Access-Control-Allow-Origin = ""
 [build]
-  functions = "backend/router/route.js"
+  functions = "backend/router"
 
 [dev]
   publish = "frontend"
