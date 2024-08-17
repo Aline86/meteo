@@ -33,12 +33,6 @@ exports.getMap = async (req, res) => {
       
     });
   
-    // Log errors if any occur
-    request.on('error', (error) => {
-      console.error(error);
-    });
-  
-    // End the request
-    request.end();
+   
   };
   
