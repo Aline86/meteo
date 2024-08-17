@@ -1,15 +1,21 @@
-var http = require("http");
-const express = require('express')
-const cors = require('cors')
-const {readdirSync} = require("fs")
-const port = 3000;
-const app = express()
-const { getTowns, getTown} = require("./controller/town")
-const { getMap } = require("./controller/weather")
+const app =  express();
+const serverless = require('serverless-http');
 
-http.createServer(function(req, res) {
-    res.get('/towns/:name', getTowns)
-    res.get('/town/:name', getTown)
-    res.get('/showmap/:latitude/:longitude', getMap)
-}).listen(3000, "localhost");
+const bodyParser = require('body-parser');
 
+app.use(bodyParser);
+
+app.get('/towns/:name', (req, res) => {
+const newValue = getTowns(res.body);
+res.json(newValue);
+})
+app.get('/town/:name', (req, res) => {
+const newValue = getTown(res.body);
+res.json(newValue);
+})
+app.get('/showmap/:latitude/:longitude', (req, res) => {
+const newValue = getMap(res.body);
+res.json(newValue);
+})
+
+module.exports.handler = serverless(app);
