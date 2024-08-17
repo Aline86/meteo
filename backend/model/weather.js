@@ -24,12 +24,14 @@ let town = class Weather {
         this.humidity = humidity;
         this.cloud = cloud;
         this.uv = uv;
-        this.next_days = forecast.forecastday;//this.next_week_days(forecast);
+        this.next_days = this.next_week_days(forecast);
         
     }
 
     next_week_days = (forecast) => {
         let days = {};
+        let i = 0;
+        let name = ""
         let inter_name = [];
         forecast.forecastday.forEach(element => {
             let day = {};
@@ -44,7 +46,8 @@ let town = class Weather {
             day.icon = element.day.condition.icon;
        
             inter_name.push(day)
-    
+         
+            i++;
         });
       
         for ( var index in inter_name ) {
