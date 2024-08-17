@@ -3,10 +3,10 @@
   node_bundler = "esbuild"
 [[redirects]]
   force = true
-  from = "https/*"
+  from = "http://localhost:3000/*"
  
   status = 200
-  to = "http://localhost:3000/*"
+  to = "https/*"
 [build]
   functions = "backend/server.js"
 
