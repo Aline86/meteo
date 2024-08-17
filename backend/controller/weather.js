@@ -1,6 +1,6 @@
 const Weather = require('../model/weather')
 
-let weather = {};
+
 exports.getMap = async (req, res) => {
   try {  
     let data = '';
@@ -11,6 +11,7 @@ exports.getMap = async (req, res) => {
       });
       response.on('end', () => {
         data = JSON.parse(data);
+        let weather = {};
         weather = new Weather(
           data.current.temp_c, 
           data.current.is_day, 
