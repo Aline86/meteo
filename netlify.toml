@@ -2,7 +2,7 @@
   external_node_modules = ["express"]
   node_bundler = "esbuild"
 [[redirects]]
-from = "http/*"
+from = "https/*"
 to = "/frontend/index.html"
 status = 200
 
