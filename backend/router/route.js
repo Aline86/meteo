@@ -1,7 +1,6 @@
 const express = require('express')
 const router = express.Router()
 
-
 const { getTowns, getTown} = require("../controller/town")
 const { getMap } = require("../controller/weather")
 
