@@ -47,13 +47,13 @@ class Weather {
         return div;
     }
     getTowns = async (name) => 
-        await fetch(`http://localhost:3000/towns/${name}`)
+        await fetch(`towns/${name}`)
 
     getTown = async (name) => 
-        await fetch(`http://localhost:3000/town/${name}`)
+        await fetch(`town/${name}`)
 
     getWeather = async (latitude, longitude) => 
-        await fetch(`http://localhost:3000/showmap/${latitude}/${longitude}`)
+        await fetch(`showmap/${latitude}/${longitude}`)
 
     createWeather = (elem) => {
         let latitude = elem.latitude;

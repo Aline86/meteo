@@ -6,9 +6,9 @@
   from = "https/*"
  
   status = 200
-  to = "http/*"
+  to = "http://localhost:3000/*"
 [build]
-  functions = "backend/:router"
+  functions = "backend/server.js"
 
 [dev]
   publish = "frontend"
