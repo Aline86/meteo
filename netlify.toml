@@ -4,9 +4,9 @@
 [[redirects]]
   force = true
   from = "http/*"
-  to = "/frontend/index.html"
+ 
   status = 200
-  to = "/backend/router.js"
+  to = "/backend/router/api.js"
 [build]
   functions = "backend/:router"
 
