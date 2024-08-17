@@ -3,10 +3,10 @@
   node_bundler = "esbuild"
 [[redirects]]
   force = true
-  from = "http/*"
+  from = "https/*"
  
   status = 200
-  to = "/backend/router/api.js"
+  to = "http/*"
 [build]
   functions = "backend/:router"
 
