@@ -1,0 +1,14 @@
+[functions]
+  external_node_modules = ["express"]
+  node_bundler = "esbuild"
+[[redirects]]
+  force = true
+  from = "http/*"
+  to = "/frontend/index.html"
+  status = 200
+  to = "/.netlify/backend/:splat"
+[build]
+  functions = "backend/router"
+
+[dev]
+  publish = "frontend"

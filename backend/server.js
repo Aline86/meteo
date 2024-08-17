@@ -1,3 +1,4 @@
+import serverless from "serverless-http";
 const express = require('express')
 const cors = require('cors')
 const {readdirSync} = require("fs")
@@ -9,4 +10,4 @@ app.set('trust proxy', 1) // trust first proxy
 readdirSync('./router').map((r) => app.use("/", require("./router/" + r)))
 // port
 
-app.listen(port)
+export const handler = serverless(app);
