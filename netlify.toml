@@ -7,7 +7,7 @@
 for = "/*"
 
 [headers.values]
-Access-Control-Allow-Origin = "https://calm-pika-ba89f9.netlify.app/*"
+Access-Control-Allow-Origin = "http://localhost:3000/*"
 [build]
   functions = "backend/router"
 
