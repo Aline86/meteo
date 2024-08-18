@@ -1,6 +1,6 @@
 body {
     font-family: 'Maximum Impact';
-    color: white;
+    color: rgb(144, 198, 217);
     background: linear-gradient(90deg, rgb(140, 227, 232) 0%, rgb(246, 251, 251) 35%, rgb(247, 232, 95) 100%); 
     font-weight: 400;
 }
