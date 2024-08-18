@@ -40,8 +40,9 @@ exports.getTown = async (req, res) => {
     try {
         citiesArray = cities
         town = [];
+        let i = 0;
         citiesArray["cities"].forEach(city => {
-            if(city.label == req.params.name.toLowerCase()) {
+            if(city.label == req.params.name.toLowerCase() && i === 0) {
               
                 town.push(new Town(
                     city.city_code,
@@ -54,7 +55,7 @@ exports.getTown = async (req, res) => {
                     city.region_name,
                     city.region_geojson_name
                 ))
-           
+                i++;
                
             }
            
