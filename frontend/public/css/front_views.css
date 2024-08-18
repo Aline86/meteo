@@ -1,6 +1,7 @@
 body {
     font-family: 'Maximum Impact';
     color: white;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(166,172,172,1) 35%, rgb(131, 218, 235) 100%); 
 }
 
 .container {
@@ -8,7 +9,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(166,172,172,1) 35%, rgb(131, 218, 235) 100%); 
+   
 }
 
 
@@ -20,7 +21,7 @@ body {
     width: 90%;
     height: 25px;
     border: 2px solid white;
-    border-radius: 20px;
+    border-radius: 50px;
     height: 50px;
     line-height: 50px;
     text-indent: 15px;
