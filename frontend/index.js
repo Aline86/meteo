@@ -43,8 +43,8 @@ class Weather {
         div.setAttribute("data-attribute", elem.label)
         let labelStr = elem.label
         div.innerText = labelStr.charAt(0).toUpperCase() + labelStr.slice(1);
-        document.getElementById("input_value").appendChild(div)
-        return div;
+        document.getElementById("input_value").innerHTML = div
+        //return div;
     }
     getTowns = async (name) => 
         await fetch(`https://main-branch--meteobackend.netlify.app/api/towns/${name}`)
