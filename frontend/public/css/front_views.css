@@ -15,7 +15,8 @@ body {
 
 
 .title_background h1 {
-    color: white
+    color: white;
+    font-weight: 400;
 }
 
 #input_name {
