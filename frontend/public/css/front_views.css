@@ -2,6 +2,7 @@ body {
     font-family: 'Maximum Impact';
     color: white;
     background: linear-gradient(90deg, rgb(140, 227, 232) 0%, rgb(246, 251, 251) 35%, rgb(247, 232, 95) 100%); 
+    font-weight: 400;
 }
 
 .container {
@@ -14,7 +15,7 @@ body {
 
 
 .title_background h1 {
-    color: lightblue;
+    color: white
 }
 
 #input_name {
@@ -25,9 +26,9 @@ body {
     height: 50px;
     line-height: 50px;
     text-indent: 15px;
-    background-color: darkgray;
+    background-color: white;
     opacity: 0.8;
-    color: white;
+    color: rgb(193, 193, 98);
     font-size: 25px;
 }
 
