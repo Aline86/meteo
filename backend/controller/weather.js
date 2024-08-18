@@ -1,9 +1,10 @@
 const Weather = require('../model/weather')
+const { weatherApiID } = require('../config');
 
 exports.getMap = (req, res) => {
     const http = require('http'); 
     let data = '';
-    const request = http.get('http://api.weatherapi.com/v1/forecast.json?key=c04fe2e1748e473da1181653243103&q=' + req.params.latitude + ',' + req.params.longitude + '&days=5', (response) => {
+    const request = http.get('http://api.weatherapi.com/v1/forecast.json?key=' + weatherApiID + '&q=' + req.params.latitude + ',' + req.params.longitude + '&days=5', (response) => {
       response.setEncoding('utf8');
       response.on('data', (chunk) => {
         data += chunk;
