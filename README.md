@@ -6,6 +6,6 @@
 
 ```Le site api de récupération des données météorologiques est le suivant https://www.weatherapi.com```
 
-*La météo est visible sur les 3 prochains jours (au départ l'API permettait de visualiser 7 jours de prévisions météorologiques avec son offre gratuite. Désormais l'offre gratuite ne permet plus que de visualiser 3 jours...) : https://meteofrontend.netlify.app/*
+*La météo est visible sur les 3 prochains jours (au départ l'API permettait de visualiser 7 jours de prévisions météorologiques avec son offre gratuite. Désormais l'offre gratuite ne permet plus que de visualiser 3 jours.. Donc à visualiser de préférence sur mobile où le carousel a plus d'intérêt avec 3 jours de prévision.) : https://meteofrontend.netlify.app/*
 
 ![capture du rendu visuel](readme_pic/meteo.PNG)
