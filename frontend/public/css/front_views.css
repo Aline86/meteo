@@ -1,7 +1,7 @@
 body {
-    font-family: 'Maximum Impact sans serif';
+    font-family: 'Maximum Impact';
     color: white;
-    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+    background: linear-gradient(90deg, rgb(115, 114, 150) 0%, rgba(166,172,172,1) 35%, rgb(208, 213, 191) 100%); 
 }
 
 .container {
@@ -28,7 +28,7 @@ body {
     background-color: darkgray;
     opacity: 0.8;
     color: white;
-
+    font-size: 25px;
 }
 
 #input_value {
