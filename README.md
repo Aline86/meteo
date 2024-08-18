@@ -6,6 +6,6 @@
 
 ```Le site api de récupération des données météorologiques est le suivant https://www.weatherapi.com```
 
-*La météo est visible sur les 7 prochains jours : https://meteofrontend.netlify.app/*
+*La météo est visible sur les 3 prochains jours : https://meteofrontend.netlify.app/*
 
 ![capture du rendu visuel](readme_pic/meteo.PNG)
